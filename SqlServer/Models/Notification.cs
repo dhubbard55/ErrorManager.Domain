@@ -4,7 +4,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace ErrorManager.SqlServer.Models
 {
-    [Table("Type", Schema = "dbo")]
+    [Table("Notification", Schema = "dbo")]
     public class Notification
     {
         [Key]

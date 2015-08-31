@@ -9,7 +9,7 @@ namespace ErrorManager.SqlServer.Models
     {
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-        public short Id { get; set; }
+        public int Id { get; set; }
 
         [Required]
         [MaxLength(50)]
@@ -24,7 +24,7 @@ namespace ErrorManager.SqlServer.Models
         public bool Enabled { get; set; }
         
         [ForeignKey("SeverityId")]
-        public virtual Severity Severities { get; set; }
+        public virtual Severity Severity { get; set; }
 
         public virtual ICollection<UserNotification> UserNotifications { get; set; }
     }

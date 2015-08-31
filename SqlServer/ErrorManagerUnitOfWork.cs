@@ -1,5 +1,6 @@
 ﻿using ErrorManager.Domain.DAL;
 using System.Data.Common;
+using System.Data.SqlClient;
 
 namespace ErrorManager.Domain.SqlServer
 {
@@ -11,7 +12,7 @@ namespace ErrorManager.Domain.SqlServer
         }
 
         public ErrorManagerUnitOfWork(string connection) 
-            : base(connection)
+            : this(new SqlConnection(connection),true)
         {
         }
     }

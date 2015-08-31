@@ -10,7 +10,7 @@ namespace ErrorManager.SqlServer.Models
     {
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-        public short Id { get; set; }
+        public int Id { get; set; }
 
         [Required]
         [MaxLength(50)]
@@ -26,8 +26,7 @@ namespace ErrorManager.SqlServer.Models
         [MaxLength(255)]
         public string LastName { get; set; }
 
-        [MaxLength(500)]
-        public string Address { get; set; }
+        public int? AddressId { get; set; }
 
         [MaxLength(15)]
         public string Phone { get; set; }
@@ -35,6 +34,9 @@ namespace ErrorManager.SqlServer.Models
         [MaxLength(254)]
         public string Email { get; set; }
 
-        public virtual ICollection<UserNotification> UserNotifications { get; set; }
+        [ForeignKey("AddressId")]
+        public virtual Address Address { get; set; }
+
+        public virtual ICollection<UserNotification> AssignedNotifies { get; set; }
     }
 }
